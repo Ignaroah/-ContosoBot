@@ -114,7 +114,7 @@ namespace BotTest
                                 var collection = await accountManager.ViewAccounts(authUser);
                                 foreach (AccountEntity userAccount in collection)
                                 {
-                                    replyString += $"\n\n {userAccount.Name} - Balance: {userAccount.Balance}\n - - - \n";
+                                    replyString += $"\n\n {userAccount.Name} - Balance: {userAccount.Balance.ToString("c")}\n - - - \n";
                                     //ReceiptItem lineItem = new ReceiptItem()
                                     //{
                                     //    Title = $"{userAccount.Name} "
@@ -705,8 +705,7 @@ namespace BotTest
                     }
                     else
                     {
-                        Activity reply = activity.CreateReply("Something went wrong, could you try again?");
-                        await connector.Conversations.ReplyToActivityAsync(reply);
+
                     }
                     // calculate something for us to return
 
